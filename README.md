@@ -46,7 +46,7 @@ All file tools are restricted to a sandboxed working directory. Scripts run via 
 
 ## Architecture notes
 
-**Central dispatcher (`call_function`)** routes the model's tool requests to the right Python function. It injects the working directory path into every tool call, so the model never has to (or is able to) specify an absolute path. This keeps individual tool functions decoupled from global state and prevents path traversal outside the sandbox.
+**Central dispatcher (`call_function`)** routes the model's tool requests to the right Python function via a module-level `function_map`. It injects the working directory path into every tool call, so the model never has to (or is able to) specify an absolute path, and prevents path traversal outside the sandbox.
 
 **Sandboxing** is enforced with `os.path.commonpath`, comparing the resolved absolute target path against the resolved absolute working directory. Any path that escapes the working directory (`../`, `/bin`, `/tmp`, etc.) is rejected before any file operation is attempted.
 
