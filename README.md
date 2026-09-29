@@ -32,7 +32,7 @@ The loop is capped at a configurable max iteration count (`MAX_ITERS` in `config
 
 ## Tools
 
-All tools operate inside a sandboxed working directory. The model cannot read, write, or execute anything outside of it. Every path is validated against the resolved working directory before any filesystem operation runs.
+All file tools are restricted to a sandboxed working directory. Scripts run via run_python_file are not isolated and execute with your user's permissions. Every path is validated against the resolved working directory before any filesystem operation runs.
 
 | Tool | Description |
 |------|-------------|
