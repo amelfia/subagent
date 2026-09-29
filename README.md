@@ -1,4 +1,7 @@
 # subagent
+![Python](https://img.shields.io/badge/python-3.13+-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![uv](https://img.shields.io/badge/package_manager-uv-orange.svg)
 
 A command-line AI coding agent built in Python using Google's Gemini API. It explores codebases, reads and writes files, executes scripts, and iterates in a feedback loop until it completes a task.
 
