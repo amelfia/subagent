@@ -5,6 +5,10 @@
 
 A command-line AI coding agent built in Python using Google's Gemini API. It explores codebases, reads and writes files, executes scripts, and iterates in a feedback loop until it completes a task.
 
+## Motivation
+
+AI coding tools are everywhere now, and I wanted to understand what actually happens inside one. How does a model decide to read a file? What stops it from writing outside the project? Building subagent answered both: the agent loop is a model choosing tools and a dispatcher running them, and the sandbox is a path check that runs before every file operation. It was also a lot of fun to build an interactive CLI.
+
 ---
 
 ## What it does
@@ -50,7 +54,7 @@ All file tools are restricted to a sandboxed working directory. Scripts run via 
 
 **Sandboxing** is enforced with `os.path.commonpath`, comparing the resolved absolute target path against the resolved absolute working directory. Any path that escapes the working directory (`../`, `/bin`, `/tmp`, etc.) is rejected before any file operation is attempted.
 
-## Setup
+## Quick Start
 
 **Prerequisites:** Python 3.13+, [uv](https://github.com/astral-sh/uv)
 
@@ -76,13 +80,17 @@ Get a free API key from [Google AI Studio](https://aistudio.google.com/apikey).
 uv run main.py "your prompt here"
 ```
 
-## Example
+## Usage
 
 ```bash
 uv run main.py "Look at the calculator app and fix any bugs you find"
 ```
 
 The agent will explore the `calculator/` directory, read the source files, identify issues, and write fixes, all autonomously.
+
+## Contributing
+
+Fork the repository and open a pull request.
 
 ## Tech stack
 
