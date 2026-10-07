@@ -5,6 +5,8 @@
 
 A command-line AI coding agent built in Python using Google's Gemini API. It explores codebases, reads and writes files, executes scripts, and iterates in a feedback loop until it completes a task.
 
+![demo](assets/demo.gif)
+
 ## Motivation
 
 AI coding tools are everywhere now, and I wanted to understand what actually happens inside one. How does a model decide to read a file? What stops it from writing outside the project? Building subagent answered both: the agent loop is a model choosing tools and a dispatcher running them, and the sandbox is a path check that runs before every file operation. It was also a lot of fun to build an interactive CLI.
